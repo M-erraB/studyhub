@@ -1,8 +1,11 @@
-function Header() {
+type HeaderProps = {
+    name: string;
+};
+function Header({name} : HeaderProps) {
     return (
         <header>
             <h1>StudyHub</h1>
-            <h2>Welcome, Mustafa!</h2>
+            <h2>Welcome, {name}!</h2>
         </header>
     )
 }
