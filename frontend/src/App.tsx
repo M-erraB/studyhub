@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import DashboardCard from "./components/DashboardCard";
 import "./App.css";
+import CourseList from "./components/CourseList";
 function App() {
   return (
     <div>
@@ -27,8 +28,10 @@ function App() {
       <DashboardCard
         title="Study Timer"
         icon="⏱️"
-      />
+        />
       </div>
+      <CourseList
+      />
     </div>
     
   );
