@@ -1,39 +1,21 @@
-import Header from "./components/Header";
-import DashboardCard from "./components/DashboardCard";
-import "./App.css";
-import CourseList from "./components/CourseList";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Courses from "./pages/Courses";
+import Assignments from "./pages/Assignments";
+import Calendar from "./pages/Calendar";
+import StudyTimer from "./pages/StudyTimer";
+
 function App() {
-  return (
-    <div>
-      <Header name = "Mustafa"/>
-
-      <h2 className="dashboard-title">Dashboard</h2>    
-    
-    <div className="dashboard-grid">
-      <DashboardCard
-        title="My Courses"
-        icon="📚"
-      />
-
-      <DashboardCard
-        title="Assignments"
-        icon="📝"
-      />
-
-      <DashboardCard
-        title="Calendar"
-        icon="📅"
-      />
-
-      <DashboardCard
-        title="Study Timer"
-        icon="⏱️"
-        />
-      </div>
-      <CourseList
-      />
-    </div>
-    
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/assignments" element={<Assignments />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/timer" element={<StudyTimer />} />
+        </Routes>
+    );
 }
+
 export default App;

@@ -1,11 +1,28 @@
 /* =========================
+   Color Theme
+   ========================= */
+
+:root {
+    --background: #F5F7FA;
+    --card: #FFFFFF;
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --text: #1F2937;
+    --text-light: #6B7280;
+    --border: #E5E7EB;
+    --danger: #DC2626;
+    --danger-hover: #B91C1C;
+}
+
+/* =========================
    Global Styles
    ========================= */
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #7A0019;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--background);
+    color: var(--text);
 }
 
 #root {
@@ -19,15 +36,18 @@ body {
    ========================= */
 
 h1 {
-    color: #FFCC33;
+    color: var(--primary);
     font-size: 3rem;
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 45px;
 }
 
+
 header h2 {
-    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-light);
     font-weight: normal;
-    margin-top: 0;
 }
 
 /* =========================
@@ -35,10 +55,11 @@ header h2 {
    ========================= */
 
 .dashboard-title {
-    color: white;
+    color: var(--text);
     margin: 40px 0 20px;
     text-align: center;
 }
+
 
 .dashboard-grid {
     display: grid;
@@ -48,21 +69,33 @@ header h2 {
 }
 
 .dashboard-card {
-    background: white;
-    padding: 20px;
+    background: var(--card);
+    padding: 32px 28px;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    user-select: none;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;}
 
 .dashboard-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+
+}
+
+.dashboard-card:active {
+    transform: scale(.98);
 }
 
 .dashboard-card h2 {
-    color: #333;
+    color: var(--text);
     margin: 0;
 }
 
@@ -75,16 +108,21 @@ header h2 {
     margin: 0 auto;
     padding: 30px;
 
-    background: white;
+    background: var(--card);
+
+    border: 1px solid var(--border);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .course-list h2 {
-    color: #333;
+    color: var(--text);
     text-align: center;
+
     margin-top: 0;
     margin-bottom: 25px;
+
     font-size: 2rem;
 }
 
@@ -92,31 +130,38 @@ header h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+
     gap: 14px;
     margin-bottom: 30px;
 }
 
 .course-input input {
     width: 320px;
+
     padding: 12px 16px;
 
-    border: 2px solid #ddd;
+    font-size: 16px;
+
+    border: 2px solid var(--border);
     border-radius: 8px;
 
-    font-size: 16px;
-    transition: border-color 0.2s ease;
+    transition: 
+      border-color .2s ease,
+      box-shadow .2s ease;
+    
 }
 
 .course-input input:focus {
     outline: none;
-    border-color: #FFCC33;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .course-input button {
     padding: 12px 22px;
 
-    background-color: #FFCC33;
-    color: black;
+    background: var(--primary);
+    color: white;
 
     border: none;
     border-radius: 8px;
@@ -125,11 +170,16 @@ header h2 {
     font-weight: bold;
 
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background .2s ease;
 }
 
 .course-input button:hover {
-    background-color: #FFD95A;
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.course-input button:active {
+    transform: scale(.98);
 }
 
 .course-list ul {
@@ -143,24 +193,26 @@ header h2 {
     justify-content: space-between;
     align-items: center;
 
-    background: #f5f5f5;
-
     padding: 14px 18px;
     margin-bottom: 14px;
 
+    background: #F9FAFB;
+
+    border: 1px solid var(--border);
     border-radius: 8px;
 
-    color: #333;
+    color: var(--text);
+
     font-size: 18px;
     font-weight: 500;
 
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease;
+    transition: all .2s ease;
+    
 }
 
 .course-list li:hover {
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
 }
 
 .course-list li:last-child {
@@ -168,20 +220,98 @@ header h2 {
 }
 
 .course-list li button {
-    background: #d32f2f;
+    background: var(--danger);
     color: white;
-
     border: none;
     border-radius: 6px;
-
     padding: 9px 16px;
-
     font-size: 14px;
-
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background .2s ease;
 }
 
 .course-list li button:hover {
-    background: #b71c1c;
+    background: var(--danger-hover);
+}
+
+/* =========================
+   Navigation
+   ========================= */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    padding: 10px;
+
+    width: fit-content;
+    margin: 30px auto 40px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+.navbar a {
+    display: inline-block;
+
+    color: var(--text);
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+
+    transition:
+      background-color .2s ease,
+      color .2s ease;}
+
+.navbar a:hover {
+    color: white;
+    background: var(--primary);
+}
+
+.navbar a.active {
+    color: white;
+    background: var(--primary);
+}
+
+/* =========================
+
+   Responsive Design
+
+   ========================= */
+
+@media (max-width: 768px) {
+
+    #root {
+        padding: 20px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .course-input {
+        flex-direction: column;
+    }
+
+    .course-input input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .course-input button {
+        width: 100%;
+    }
+
 }
